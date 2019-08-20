@@ -7,8 +7,8 @@ INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_
 ;
 
 INSERT INTO `items` (`name`, `label`, `limit`) VALUES
-	('diamond', 'Diamond', 42),
-	('gold', 'Gold', 21),
-	('iron', 'Iron', 50),
-	('copper', 'Diamond', 50)
+	('diamond', 'Diamond', 100),
+	('gold', 'Gold', 100),
+	('iron', 'Iron', 100),
+	('copper', 'Diamond', 100)
 ;
