@@ -1,8 +1,8 @@
 ESX               = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-RegisterNetEvent("esx_gornik:givestone")
-AddEventHandler("esx_gornik:givestone", function(item, count)
+RegisterNetEvent("esx_miner:givestone")
+AddEventHandler("esx_miner:givestone", function(item, count)
     local _source = source
     local xPlayer  = ESX.GetPlayerFromId(_source)
         if xPlayer ~= nil then
@@ -14,13 +14,13 @@ AddEventHandler("esx_gornik:givestone", function(item, count)
     end)
 
     
-RegisterNetEvent("esx_gornik:washing")
-AddEventHandler("esx_gornik:washing", function(item, count)
+RegisterNetEvent("esx_miner:washing")
+AddEventHandler("esx_miner:washing", function(item, count)
     local _source = source
     local xPlayer  = ESX.GetPlayerFromId(_source)
         if xPlayer ~= nil then
             if xPlayer.getInventoryItem('kamienie').count > 9 then
-                TriggerClientEvent("esx_gornik:washing", source)
+                TriggerClientEvent("esx_miner:washing", source)
                 Citizen.Wait(15900)
                 xPlayer.addInventoryItem('umytekamienie', 10)
             elseif xPlayer.getInventoryItem('kamienie').count < 10 then
@@ -29,14 +29,14 @@ AddEventHandler("esx_gornik:washing", function(item, count)
         end
     end)
 
-RegisterNetEvent("esx_gornik:remelting")
-AddEventHandler("esx_gornik:remelting", function(item, count)
+RegisterNetEvent("esx_miner:remelting")
+AddEventHandler("esx_miner:remelting", function(item, count)
     local _source = source
     local xPlayer  = ESX.GetPlayerFromId(_source)
     local randomChance = math.random(1, 100)
         if xPlayer ~= nil then
             if xPlayer.getInventoryItem('umytekamienie').count > 9 then
-                TriggerClientEvent("esx_gornik:remelting", source)
+                TriggerClientEvent("esx_miner:remelting", source)
                 Citizen.Wait(15900)
                 if randomChance < 10 then
                     xPlayer.addInventoryItem("diamond", 1)
@@ -61,8 +61,8 @@ AddEventHandler("esx_gornik:remelting", function(item, count)
         end
     end)
 
-RegisterNetEvent("esx_gornik:selldiamond")
-AddEventHandler("esx_gornik:selldiamond", function(item, count)
+RegisterNetEvent("esx_miner:selldiamond")
+AddEventHandler("esx_miner:selldiamond", function(item, count)
     local _source = source
     local xPlayer  = ESX.GetPlayerFromId(_source)
         if xPlayer ~= nil then
@@ -77,8 +77,8 @@ AddEventHandler("esx_gornik:selldiamond", function(item, count)
         end
     end)
 
-RegisterNetEvent("esx_gornik:sellgold")
-AddEventHandler("esx_gornik:sellgold", function(item, count)
+RegisterNetEvent("esx_miner:sellgold")
+AddEventHandler("esx_miner:sellgold", function(item, count)
     local _source = source
     local xPlayer  = ESX.GetPlayerFromId(_source)
         if xPlayer ~= nil then
@@ -93,8 +93,8 @@ AddEventHandler("esx_gornik:sellgold", function(item, count)
         end
     end)
 
-RegisterNetEvent("esx_gornik:selliron")
-AddEventHandler("esx_gornik:selliron", function(item, count)
+RegisterNetEvent("esx_miner:selliron")
+AddEventHandler("esx_miner:selliron", function(item, count)
     local _source = source
     local xPlayer  = ESX.GetPlayerFromId(_source)
         if xPlayer ~= nil then
@@ -109,8 +109,8 @@ AddEventHandler("esx_gornik:selliron", function(item, count)
         end
     end)
 
-RegisterNetEvent("esx_gornik:sellcopper")
-AddEventHandler("esx_gornik:sellcopper", function(item, count)
+RegisterNetEvent("esx_miner:sellcopper")
+AddEventHandler("esx_miner:sellcopper", function(item, count)
     local _source = source
     local xPlayer  = ESX.GetPlayerFromId(_source)
         if xPlayer ~= nil then

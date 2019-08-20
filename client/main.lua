@@ -246,7 +246,7 @@ function Cloakroom()
     ESX.UI.Menu.CloseAll()
 
     ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'miner_actions', {
-        title    = 'Górnik',
+        title    = 'Miner',
         align    = 'top-left',
         elements = elements
     }, function(data, menu)
