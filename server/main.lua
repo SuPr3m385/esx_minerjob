@@ -23,6 +23,7 @@ AddEventHandler("esx_miner:washing", function(item, count)
                 TriggerClientEvent("esx_miner:washing", source)
                 Citizen.Wait(15900)
                 xPlayer.addInventoryItem('washedstones', 10)
+                xPlayer.removeInventoryItem("stones", 10)
             elseif xPlayer.getInventoryItem('stones').count < 10 then
                 TriggerClientEvent('esx:showNotification', source, 'You do not have ~b~stones.')
             end
