@@ -1,7 +1,6 @@
 local PlayerData                = {}
 ESX                             = nil
 
-local ped = PlayerPedId()
 local blip1 = {}
 local blips = false
 local blipActive = false
@@ -136,6 +135,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
+	local ped = PlayerPedId()
         Citizen.Wait(1)
             if PlayerData.job ~= nil and PlayerData.job.name == 'miner' and not IsEntityDead( ped ) then
                 if GetDistanceBetweenCoords(GetEntityCoords(ped), Config.CloakroomX, Config.CloakroomY, Config.CloakroomZ, true) < 25 then
@@ -153,6 +153,7 @@ Citizen.CreateThread(function()
 
 Citizen.CreateThread(function()
     while true do
+	local ped = PlayerPedId()
         Citizen.Wait(1)
             for i=1, #locations, 1 do
             if GetDistanceBetweenCoords(GetEntityCoords(ped), locations[i].x, locations[i].y, locations[i].z, true) < 25 and mineActive == false then
@@ -171,6 +172,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
+	local ped = PlayerPedId()
         Citizen.Wait(1)
         if GetDistanceBetweenCoords(GetEntityCoords(ped), Config.WashingX, Config.WashingY, Config.WashingZ, true) < 25 and washingActive == false then
             DrawMarker(20, Config.WashingX, Config.WashingY, Config.WashingZ, 0, 0, 0, 0, 0, 55.0, 1.0, 1.0, 1.0, 0, 155, 253, 155, 0, 0, 2, 0, 0, 0, 0)
@@ -186,6 +188,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
+	local ped = PlayerPedId()
         Citizen.Wait(1)
         if GetDistanceBetweenCoords(GetEntityCoords(ped), Config.RemeltingX, Config.RemeltingY, Config.RemeltingZ, true) < 25 and remeltingActive == false then
             DrawMarker(20, Config.RemeltingX, Config.RemeltingY, Config.RemeltingZ, 0, 0, 0, 0, 0, 55.0, 1.0, 1.0, 1.0, 0, 155, 253, 155, 0, 0, 2, 0, 0, 0, 0)
@@ -201,6 +204,7 @@ Citizen.CreateThread(function()
 
 Citizen.CreateThread(function()
     while true do
+	local ped = PlayerPedId()
         Citizen.Wait(1)
             if GetDistanceBetweenCoords(GetEntityCoords(ped), Config.SellX, Config.SellY, Config.SellZ, true) < 2 then
                 ESX.ShowHelpNotification("Press ~INPUT_CONTEXT~ to sell items.")
@@ -314,6 +318,7 @@ function Animation()
     Citizen.CreateThread(function()
         while impacts < 5 do
             Citizen.Wait(1)
+		local ped = PlayerPedId()	
                 RequestAnimDict("melee@large_wpn@streamed_core")
                 Citizen.Wait(100)
                 TaskPlayAnim((ped), 'melee@large_wpn@streamed_core', 'ground_attack_on_spot', 8.0, 8.0, -1, 80, 0, 0, 0, 0)
@@ -340,6 +345,7 @@ function Animation()
 end
 
 function Washing()
+    local ped = PlayerPedId()
     RequestAnimDict("amb@prop_human_bum_bin@idle_a")
     washingActive = true
     Citizen.Wait(100)
@@ -353,6 +359,7 @@ function Washing()
 end
 
 function Remelting()
+    local ped = PlayerPedId()
     RequestAnimDict("amb@prop_human_bum_bin@idle_a")
     remeltingActive = true
     Citizen.Wait(100)
