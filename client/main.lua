@@ -125,3 +125,4 @@ AddEventHandler("esx_miner:sellcopper", function(item, count)
             end
         end
     end)
+ 
